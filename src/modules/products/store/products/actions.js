@@ -16,7 +16,6 @@ export const loadProducts = async ({commit}) => {
 
      
     // }
-
     commit('setProducts',products)
    
 }

@@ -35,9 +35,9 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.description }}</td>
                     <td>{{ item.price }}</td>
-                    <td>{{ item.amount }}</td>
+                    <td>{{ item.stock }}</td>
                     <td class="td-actions text-right">
-                        <button  @click="openUpdateProduct(item.id,item.name,item.description,item.price,item.amount)" class="btn btn-success">
+                        <button  @click="openUpdateProduct(item.id,item.name,item.description,item.price,item.stock)" class="btn btn-success">
                             <i class="fas fa-edit"></i>
                         </button>&nbsp;
                         <button @click="onDeleteProduct(item.id)" class="btn btn-danger ml-2">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-group pt-2">
                     <label for="inputAddress2">Cantidad</label>
-                    <input type="number" class="form-control" placeholder="Apartment, studio, or floor" v-model="product.amount">
+                    <input type="number" class="form-control" placeholder="Apartment, studio, or floor" v-model="product.stock">
                 </div> 
             </form>
         </template>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="form-group pt-2">
                     <label for="inputAddress2">Cantidad</label>
-                    <input type="number" class="form-control" placeholder="Apartment, studio, or floor" v-model="editProduct.amount">
+                    <input type="number" class="form-control" placeholder="Apartment, studio, or floor" v-model="editProduct.stock">
                 </div> 
             </form>
         </template>
@@ -157,13 +157,13 @@ export default {
             
             this.id = id
         },
-        openUpdateProduct(id,name,description,price,amount){
+        openUpdateProduct(id,name,description,price,stock){
             this.openModalEdit()
             this.editProduct.id = id
             this.editProduct.name = name
             this.editProduct.description = description
             this.editProduct.price = price
-            this.editProduct.amount = amount
+            this.editProduct.stock = stock
         },
         async ondUpdateProduct(){
             
@@ -199,7 +199,7 @@ export default {
             this.product.name = ''
             this.product.description = ''
             this.product.price = 0
-            this.product.amount = 0
+            this.product.stock = 0
             this.product.id = 0
             Swal.fire('Guardado','Se registro el producto con éxito','success')
             this.closeModal()
@@ -241,14 +241,14 @@ export default {
                 name:'',
                 description:'',
                 price:0,
-                amount:0,
+                stock:0,
             },
             editProduct:{
                 id:0,
                 name:'',
                 description:'',
                 price:0,
-                amount:0,
+                stock:0,
             }
         }
     }

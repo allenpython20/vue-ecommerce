@@ -3,6 +3,7 @@
 // }
 
 export const setProducts =  (state,products) => {
+    state.products = []
     state.products = [...state.products,...products]
     state.products = state.products.reverse()
     state.isLoading = false
@@ -19,4 +20,8 @@ export const addProduct =  (state,product) => {
 
 export const deleteProduct=  (state,id) => {
     state.products = state.products.filter(product => product.id !== id)
+}
+
+export const clearProducts =  (state) => {
+    state.products = []
 }
